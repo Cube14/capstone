@@ -28,40 +28,43 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+  <div className="container mt-5" style={{ maxWidth: "400px" }}>
+    <div className="card p-4 shadow">
+      <h3 className="text-center mb-4">Login</h3>
 
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
+        <div className="mb-3">
+          <label className="form-label">Email</label>
           <input
             type="email"
+            className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
 
-        <div>
-          <label>Password:</label>
+        <div className="mb-3">
+          <label className="form-label">Password</label>
           <input
             type="password"
+            className="form-control"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
 
-        <button type="submit">Login</button>
+        <button className="btn btn-primary w-100">Login</button>
       </form>
 
-      <p>{message}</p>
-
-      <p>
-        Don't have an account? <Link to="/register">Register</Link>
+      <p className="text-danger text-center mt-3">{message}</p>
+      <p className="text-center mt-3">
+  Don't have an account? <Link to="/register">Register</Link>
       </p>
     </div>
-  );
+  </div>
+);
 }
 
 export default Login;

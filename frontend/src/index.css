@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  cursor: pointer;
+}
+/* SIDEBAR ITEM STYLE */
+.sidebar-item {
+  background-color: transparent !important;
+  color: white !important;
+  transition: all 0.2s ease;
+}
+
+/* HOVER EFFECT */
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+  transform: translateX(5px);
+  cursor: pointer;
+}
+
+/* ACTIVE CLICK EFFECT */
+.sidebar-item:active {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
