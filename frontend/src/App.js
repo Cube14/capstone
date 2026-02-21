@@ -10,7 +10,8 @@ function App() {
     <BrowserRouter>
       <Navbar />
 
-      <div className="container mt-4">
+      {/* GLOBAL PAGE WRAPPER */}
+      <div style={{ paddingTop: "72px" }}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />

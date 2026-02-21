@@ -26,48 +26,43 @@ function Dashboard() {
 
       {/* SIDEBAR */}
       <div
-        className="bg-dark text-white p-3"
+        className="bg-dark text-white p-4"
         style={{
           width: "240px",
-          height: "100vh",
-          position: "fixed",
-          left: 0,
-          top: 56, // below navbar
+          height: "calc(108vh - 70px)",
+          position: "sticky",
+          top: "0"
         }}
-      >
-        <h4 className="mb-4">IDS Panel</h4>
+>
+        <h4 className="sidebar-title">IDS Panel</h4>
 
-        <div className="list-group list-group-flush">
-          <button className="list-group-item list-group-item-action bg-dark text-white border-0 sidebar-item">
+        <div className="list-group list-group-flush sidebar-menu">
+
+          <button className="list-group-item list-group-item-action bg-dark text-white border-0">
             Dashboard
           </button>
 
-          <button className="list-group-item list-group-item-action bg-dark text-white border-0 sidebar-item">
+          <button className="list-group-item list-group-item-action bg-dark text-white border-0">
             Network Logs
           </button>
 
-          <button className="list-group-item list-group-item-action bg-dark text-white border-0 sidebar-item">
+          <button className="list-group-item list-group-item-action bg-dark text-white border-0">
             Alerts
           </button>
 
-          <button className="list-group-item list-group-item-action bg-dark text-white border-0 sidebar-item">
+          <button className="list-group-item list-group-item-action bg-dark text-white border-0">
             Settings
           </button>
+
         </div>
       </div>
 
       {/* MAIN CONTENT */}
-      <div
-        className="container-fluid"
-        style={{
-          marginLeft: "240px",
-          marginTop: "20px",
-          padding: "30px",
-        }}
-      >
+      <div className="flex-grow-1 p-4 overflow-auto">
+
         <h2 className="mb-4">SDN Intrusion Detection Dashboard</h2>
 
-        {/* TOP CARDS */}
+        {/* CARDS */}
         <div className="row mb-4">
           <div className="col-md-4">
             <div className="card shadow p-3">
@@ -91,7 +86,7 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* ALERT PANEL */}
+        {/* ALERT */}
         <div className="alert alert-warning">
           No intrusion detected. System monitoring network traffic.
         </div>
@@ -121,13 +116,11 @@ function Dashboard() {
                 <td className="text-success">Safe</td>
                 <td>120</td>
               </tr>
-
               <tr>
                 <td>192.168.1.15</td>
                 <td className="text-warning">Suspicious</td>
                 <td>560</td>
               </tr>
-
               <tr>
                 <td>192.168.1.33</td>
                 <td className="text-danger">Blocked</td>
@@ -135,7 +128,9 @@ function Dashboard() {
               </tr>
             </tbody>
           </table>
+
         </div>
+
       </div>
     </div>
   );
