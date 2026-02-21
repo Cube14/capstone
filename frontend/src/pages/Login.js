@@ -1,27 +1,30 @@
 import { useState, useContext } from "react";
+import { loginUser } from "../services/authService";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  // get login function from global auth state
   const { login } = useContext(AuthContext);
-
-  // navigation control
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Login Data:", { email, password });
+    try {
+      const res = await loginUser({ email, password });
 
-    // simulate successful login
-    login();
+      setMessage(res.data.message);
 
-    // redirect to dashboard
-    navigate("/dashboard");
+      login(); // set auth state
+      navigate("/dashboard");
+
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Login failed");
+    }
   };
 
   return (
@@ -51,6 +54,8 @@ function Login() {
 
         <button type="submit">Login</button>
       </form>
+
+      <p>{message}</p>
 
       <p>
         Don't have an account? <Link to="/register">Register</Link>

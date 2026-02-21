@@ -1,12 +1,21 @@
 import { useState } from "react";
+import { registerUser } from "../services/authService";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Register Data:", { email, password });
+
+    try {
+      const res = await registerUser({ email, password });
+      setMessage(res.data.message);
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Registration failed");
+    }
   };
 
   return (
@@ -36,6 +45,12 @@ function Register() {
 
         <button type="submit">Register</button>
       </form>
+
+      <p>{message}</p>
+
+      <p>
+        Already have an account? <Link to="/">Login</Link>
+      </p>
     </div>
   );
 }
