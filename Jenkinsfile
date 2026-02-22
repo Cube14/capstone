@@ -26,21 +26,5 @@ pipeline {
                 sh 'docker compose up -d'
             }
         }
-        stage('Cleanup Old Containers') {
-                steps {
-                    sh 'docker rm -f ids_mongo ids_backend ids_frontend || true'
-            }
-    }
-    
-    
-    }
-
-    post {
-        success {
-            echo 'Deployment Successful 🚀'
-        }
-        failure {
-            echo 'Deployment Failed ❌'
-        }
     }
 }
