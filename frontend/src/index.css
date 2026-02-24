@@ -1,19 +1,15 @@
 body {
   margin: 0;
   padding: 0;
-  background: #f5f6fa;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #f1f5f9;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 html, body, #root {
   height: 100%;
-}
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
@@ -71,4 +67,34 @@ code {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 25px;
+}
+
+.chart-container {
+  height: 320px;
+  width: 100%;
+}
+
+.modern-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.2s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+h2, h4, h5 {
+  color: #ffffff;
+}
+
+.card h5 {
+  color: #cbd5e1;
+}
+
+.alert {
+  color: #1e293b;
+  font-weight: 500;
 }
