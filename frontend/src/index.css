@@ -74,17 +74,19 @@ code {
   width: 100%;
 }
 
-.modern-card {
+.cyber-card {
   background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.2s ease;
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  padding: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0,255,255,0.1);
 }
 
-.modern-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+.cyber-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px rgba(0,255,255,0.3);
 }
 h2, h4, h5 {
   color: #ffffff;
@@ -136,4 +138,37 @@ h2, h4, h5 {
 
 .auth-card a {
   color: #00c6ff;
+}
+/* ===== DASHBOARD BACKGROUND ===== */
+.dashboard-bg {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #0f2027, #203a43, #2c5364);
+  animation: bgShift 10s infinite alternate ease-in-out;
+}
+
+@keyframes bgShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(20deg); }
+}
+.status-active {
+  color: #00ff88;
+  font-weight: 600;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+.alert-danger-glow {
+  color: #ff4d4d;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255,0,0,0.7);
+  animation: alertBlink 1s infinite alternate;
+}
+
+@keyframes alertBlink {
+  from { opacity: 1; }
+  to { opacity: 0.6; }
 }

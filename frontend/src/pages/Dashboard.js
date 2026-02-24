@@ -30,23 +30,26 @@ useEffect(() => {
       {
         label: "Network Traffic",
         data: trafficData,
-        borderColor: "blue",
-        backgroundColor: "rgba(0,0,255,0.2)",
+        borderColor: "#00f5ff",
+        backgroundColor: "rgba(0, 245, 255, 0.1)",
       },
     ],
   };
 
   return (
-    <div className="d-flex">
+      <div className="dashboard-bg">
+      <div className="d-flex">
 
       {/* SIDEBAR */}
       <div
-        className="bg-dark text-white p-4"
+       className="p-4"
         style={{
           width: "240px",
           height: "100vh",
           position: "sticky",
-          top: "0"
+          top: "0",
+          background: "rgba(0,0,0,0.6)",
+          backdropFilter: "blur(10px)"
         }}
 >
         <h4 className="sidebar-title">IDS Panel</h4>
@@ -81,23 +84,23 @@ useEffect(() => {
         <div className="row mb-4 g-4">
 
           <div className="col-md-4">
-            <div className="card modern-card shadow p-4 h-100 text-center">
+            <div className="cyber-card text-center h-100">
               <h5 className="mb-2">Active Users</h5>
               <h3 className="text-info fw-bold">{activeUsers}</h3>
             </div>
           </div>
 
           <div className="col-md-4">
-            <div className="card modern-card shadow p-4 h-100 text-center">
+            <div className="cyber-card text-center h-100">
               <h5 className="mb-2">Network Status</h5>
-              <h4 className="text-success fw-bold">Active</h4>
+              <h4 className="status-active">Active</h4>
             </div>
           </div>
 
           <div className="col-md-4">
-            <div className="card modern-card shadow p-4 h-100 text-center">
+            <div className="cyber-card text-center h-100">
               <h5 className="mb-2">Intrusion Alerts</h5>
-              <h4 className="text-danger fw-bold">0 Detected</h4>
+              <h4 className="alert-danger-glow">0 Detected</h4>
             </div>
           </div>
 
@@ -156,6 +159,7 @@ useEffect(() => {
 
         </div>
 
+      </div>
       </div>
     </div>
   );
