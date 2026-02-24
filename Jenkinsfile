@@ -9,17 +9,31 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Stop Old Containers') {
+            steps {
+                sh 'docker compose down || true'
+            }
+        }
+
+        stage('Build Docker Images') {
             steps {
                 sh 'docker compose build'
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy Containers') {
             steps {
-                sh 'docker compose down || true'
                 sh 'docker compose up -d'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment Successful 🚀'
+        }
+        failure {
+            echo 'Deployment Failed ❌'
         }
     }
 }
