@@ -17,7 +17,7 @@ useEffect(() => {
   };
 
   updateData();
-  const interval = setInterval(updateData, 50000);
+  const interval = setInterval(updateData, 10000);
 
   return () => clearInterval(interval);
 
