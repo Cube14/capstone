@@ -4,8 +4,10 @@ import { Navigate } from "react-router-dom";
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated } = useContext(AuthContext);
+  const token = localStorage.getItem("token");
 
-  if (!isAuthenticated) {
+  // If no token OR not authenticated → redirect
+  if (!token || !isAuthenticated) {
     return <Navigate to="/" replace />;
   }
 

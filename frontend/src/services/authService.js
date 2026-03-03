@@ -10,3 +10,11 @@ export const registerUser = async (userData) => {
 export const loginUser = async (userData) => {
   return await axios.post(`${API_URL}/api/auth/login`, userData);
 };
+
+const token = localStorage.getItem("token");
+
+axios.get("/api/protected", {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});

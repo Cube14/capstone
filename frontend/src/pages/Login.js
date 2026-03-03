@@ -17,6 +17,7 @@ function Login() {
     try {
       const res = await loginUser({ email, password });
       setMessage(res.data.message);
+      localStorage.setItem("token", res.data.token);
       login();
       navigate("/dashboard");
     } catch (error) {

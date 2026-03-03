@@ -3,7 +3,11 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const protect = require("./middleware/authMiddleware");
 
+app.get("/api/protected", protect, (req, res) => {
+  res.json({ message: "You accessed protected data" });
+});
 dotenv.config();     // load .env
 connectDB();         // connect database
 
