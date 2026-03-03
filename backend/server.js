@@ -5,17 +5,20 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const protect = require("./middleware/authMiddleware");
 
-app.get("/api/protected", protect, (req, res) => {
-  res.json({ message: "You accessed protected data" });
-});
-dotenv.config();     // load .env
-connectDB();         // connect database
+dotenv.config();
+connectDB();
 
-const app = express();
+const app = express();   // ⚠️ THIS MUST COME BEFORE USING app
 
 app.use(cors());
 app.use(express.json());
+
 app.use("/api/auth", authRoutes);
+
+// ✅ Protected test route (AFTER app is created)
+app.get("/api/protected", protect, (req, res) => {
+  res.json({ message: "You accessed protected data" });
+});
 
 app.get("/", (req, res) => {
   res.send("Backend running");
